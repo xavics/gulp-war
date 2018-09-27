@@ -1,8 +1,8 @@
 "use strict";
 
 var through = require('through');
-var gutil = require('gulp-util');
-var File = gutil.File;
+var error = require('gulp-util');
+var Vinyl = require('vinyl');
 
 function emitwebXML(stream, opts) {
     // TODO - replace w/ real template
@@ -31,13 +31,13 @@ function emitwebXML(stream, opts) {
         } else if (typeof each === 'string') {
             xml += each;
         } else {
-            var err = new gutil.PluginError('war', 'invalid extras' + each);
+            var err = new error('war', 'invalid extras' + each);
             stream.emit('error', err);
         }
     });
 
     xml += '</web-app>\n';
-    var f = new File({
+    var f = new Vinyl({
         contents: new Buffer(xml),
         path: 'WEB-INF/web.xml'
     });
@@ -53,7 +53,7 @@ module.exports = function (options) {
 
     var onEnd = function () {
         emitwebXML(this, options);
-        this.emit('data', new File({path: 'META-INF/', contents: null, stat: {isDirectory: function() {return true;}}}));
+        this.emit('data', new Vinyl({path: 'META-INF/', contents: null, stat: {isDirectory: function() {return true;}}}));
         this.emit('end');
     };
 

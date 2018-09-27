@@ -1,13 +1,13 @@
 {
   "name": "gulp-war",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A Java WAR file generator plugin for Gulp",
   "keywords": [
     "gulpplugin",
     "war"
   ],
-  "homepage": "https://github.com/ScottWeinstein/gulp-war",
-  "bugs": "https://github.com/ScottWeinstein/gulp-war/issues",
+  "homepage": "https://github.com/xavics/gulp-war",
+  "bugs": "https://github.com/xavics/gulp-war/issues",
   "author": {
     "name": "Scott Weinstein",
     "email": "scottwww@squidnet.com",
@@ -16,15 +16,16 @@
   "main": "./index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ScottWeinstein/gulp-war.git"
+    "url": "git://github.com/xavics/gulp-war.git"
   },
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
     "event-stream": "3.3.4",
-    "gulp-util": "3.0.7",
-    "through": "2.3.8"
+    "plugin-error": "^1.0.1",
+    "through": "2.3.8",
+    "vinyl": "^2.2.0"
   },
   "devDependencies": {
     "mocha": "3.1.2",
