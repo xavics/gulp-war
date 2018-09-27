@@ -1,7 +1,7 @@
 "use strict";
 
 var through = require('through');
-var error = require('gulp-util');
+var error = require('plugin-error');
 var Vinyl = require('vinyl');
 
 function emitwebXML(stream, opts) {
